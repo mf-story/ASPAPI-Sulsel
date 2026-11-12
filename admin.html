@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin | ASPAPI Sulawesi Selatan</title>
+  <link rel="icon" type="image/jpeg" href="/Logo ASPAPI SULSEL.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <p id="boot-status" role="status">Memuat admin...</p>
+  <main id="auth-screen" hidden>
+    <form id="auth-form" class="auth-form">
+      <a class="admin-brand" href="/"><img src="/Logo ASPAPI SULSEL.jpg" alt="Logo ASPAPI"><span>ASPAPI<small>SULAWESI SELATAN</small></span></a>
+      <span class="overline">PENGELOLAAN WEBSITE</span>
+      <h1 id="auth-title">Masuk Admin</h1>
+      <label>Nama pengguna<input name="username" autocomplete="username" required minlength="3" maxlength="60" pattern="[a-zA-Z0-9_.\-]+"></label>
+      <label>Kata sandi<input name="password" type="password" autocomplete="current-password" required minlength="12" maxlength="128" placeholder="Minimal 12 karakter"></label>
+      <p id="auth-message" role="alert"></p>
+      <button class="btn primary" id="auth-submit" type="submit">Masuk <i data-lucide="arrow-right"></i></button>
+      <a class="subtle-link" href="/">Kembali ke website</a>
+    </form>
+  </main>
+  <div id="admin-shell" hidden>
+    <aside class="admin-sidebar">
+      <a class="admin-brand" href="/"><img id="admin-logo" src="/Logo ASPAPI SULSEL.jpg" alt="Logo ASPAPI"><span>ASPAPI<small>ADMIN SULAWESI SELATAN</small></span></a>
+      <nav aria-label="Menu admin">
+        <button data-view="dashboard"><i data-lucide="layout-dashboard"></i> Ringkasan</button>
+        <button data-view="settings"><i data-lucide="sliders-horizontal"></i> Pengaturan & Beranda</button>
+        <button data-view="profiles"><i data-lucide="building-2"></i> Profil Organisasi</button>
+        <button data-view="articles"><i data-lucide="newspaper"></i> Berita & Informasi</button>
+        <button data-view="events"><i data-lucide="calendar-days"></i> Agenda Kegiatan</button>
+        <button data-view="media"><i data-lucide="images"></i> Pustaka Gambar</button>
+        <button data-view="account"><i data-lucide="shield-check"></i> Akun & Keamanan</button>
+      </nav>
+      <a class="site-preview" href="/" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i> Lihat Website</a>
+    </aside>
+    <div class="admin-workspace">
+      <header class="admin-header"><div><span class="overline">ASPAPI SULAWESI SELATAN</span><span id="save-state">Semua perubahan tersimpan</span></div><div class="header-actions"><span id="admin-user"></span><button id="logout" class="icon-btn" title="Keluar" aria-label="Keluar"><i data-lucide="log-out"></i></button></div></header>
+      <main id="admin-main" tabindex="-1"></main>
+    </div>
+  </div>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <script type="module" src="/admin.js"></script>
+</body>
+</html>

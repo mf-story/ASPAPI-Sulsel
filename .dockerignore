@@ -1,0 +1,14 @@
+node_modules
+dist
+storage
+backups
+test-results
+.git
+.vscode
+.env
+.env.*
+!.env.example
+*.log
+*.zip
+*.tar
+*.gz

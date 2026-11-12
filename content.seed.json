@@ -1,0 +1,172 @@
+{
+  "settings": {
+    "brand": "ASPAPI",
+    "region": "SULAWESI SELATAN",
+    "logo": "/uploads/logo-aspapi-sulsel.jpg",
+    "tagline": "COMPETENT · COMPETITIVE · COLLABORATIVE",
+    "location": "Sulawesi Selatan, Indonesia",
+    "pageTitle": "ASPAPI Sulawesi Selatan | Keilmuan Bertemu Praktik",
+    "description": "ASPAPI Sulawesi Selatan. Wadah sarjana dan praktisi administrasi perkantoran untuk terhubung, berbagi pengetahuan, dan mengembangkan profesi.",
+    "registrationUrl": "https://aspapi.id/anggota/daftar",
+    "footerIdentity": "Asosiasi Sarjana dan Praktisi\nAdministrasi Perkantoran\nDaerah Sulawesi Selatan",
+    "footerLocation": "Sulawesi Selatan, Indonesia",
+    "footerContact": "Kontak sekretariat belum dipublikasikan.",
+    "footerContactHeading": "Mari Terhubung",
+    "footerRegistration": "Registrasi & Iuran Anggota",
+    "navHome": "Beranda",
+    "navProfile": "Profil",
+    "navFields": "Bidang Kegiatan",
+    "navAgenda": "Agenda",
+    "navInformation": "Informasi",
+    "navJoin": "Menjadi Anggota",
+    "footerExplore": "Jelajahi",
+    "footerAbout": "Tentang ASPAPI",
+    "heroLabel": "ASOSIASI PROFESI ADMINISTRASI PERKANTORAN",
+    "heroTitle": "ASPAPI",
+    "heroRegion": "Sulawesi Selatan.",
+    "heroDescription": "ASPAPI hadir sebagai wadah sarjana dan praktisi administrasi perkantoran untuk berkembang, bersaing, dan berkolaborasi di tingkat nasional dan global.",
+    "heroImage": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2400&q=85",
+    "heroImageAlt": "Ilustrasi para profesional berdiskusi dan bekerja bersama di ruang kerja",
+    "heroCaption": "Foto ilustrasi kolaborasi profesional",
+    "heroButton": "Tentang Kami",
+    "heroButtonUrl": "#tentang",
+    "communityLine": "Sebuah ruang untuk tumbuh bersama.",
+    "audience1": "Akademisi",
+    "audience2": "Praktisi",
+    "audience3": "Pendidik",
+    "audience4": "Mahasiswa",
+    "aboutLabel": "TENTANG KAMI",
+    "aboutTitle": "Mengenal ASPAPI",
+    "aboutParagraph1": "ASPAPI — Asosiasi Sarjana dan Praktisi Administrasi Perkantoran Indonesia — lahir dari keberanian dan tekad para inisiator yang bervisi membangun wadah bagi para sarjana dan praktisi administrasi perkantoran di seluruh Indonesia.",
+    "aboutParagraph2": "Gagasan ini bermula pada 27 Februari 2010 di Universitas Sebelas Maret (UNS), melalui serangkaian pertemuan intensif yang melibatkan akademisi dan praktisi dari berbagai perguruan tinggi se-Indonesia. Puncaknya, ASPAPI resmi berdiri melalui Kongres dan Seminar Nasional pada 16–17 Oktober 2010, dan dikukuhkan melalui Akta Notaris pada 7 Oktober 2010.",
+    "aboutParagraph3": "Dengan semangat Competent, Competitive and Collaborative, ASPAPI terus melangkah maju memajukan standar profesi administrasi perkantoran Indonesia di kancah nasional dan global.",
+    "valueTitle1": "Competent",
+    "valueText1": "Mendorong setiap anggota untuk memiliki kompetensi tinggi di bidang administrasi dan manajemen perkantoran.",
+    "valueTitle2": "Competitive",
+    "valueText2": "Membekali anggota dengan daya saing yang kuat untuk menghadapi tantangan persaingan global.",
+    "valueTitle3": "Collaborative",
+    "valueText3": "Membangun sinergi antar anggota, institusi, dan pemangku kepentingan untuk kemajuan bersama.",
+    "fieldsLabel": "BIDANG KEGIATAN",
+    "fieldsTitle": "Bersama, melangkah lebih jauh.",
+    "fieldsDescription": "Pengetahuan yang dibagikan.\nKompetensi yang terus dikembangkan.",
+    "fieldTitle1": "Pengembangan Keilmuan",
+    "fieldText1": "Ruang berbagi gagasan, kajian, dan pengetahuan administrasi perkantoran yang relevan dengan perubahan zaman.",
+    "fieldLink1": "Baca artikel keilmuan",
+    "fieldTitle2": "Penguatan Profesi",
+    "fieldText2": "Mendorong praktik kerja yang profesional melalui pembelajaran, etika, dan pengembangan kompetensi.",
+    "fieldLink2": "Pelajari praktik profesi",
+    "fieldTitle3": "Jejaring & Kolaborasi",
+    "fieldText3": "Mempertemukan akademisi, pendidik, mahasiswa, dan praktisi untuk bertukar pengalaman dan membuka kerja sama.",
+    "fieldLink3": "Jadi bagian dari jejaring",
+    "agendaLabel": "AGENDA KEGIATAN",
+    "agendaTitle": "Bertemu. Berbagi.\nBerkembang.",
+    "agendaDescription": "Ruang pertemuan untuk ide baru\ndan percakapan yang berarti.",
+    "informationLabel": "INFORMASI",
+    "informationTitle": "Berita & Informasi ASPAPI",
+    "informationSubtitle": "KABAR & ARTIKEL",
+    "membershipLabel": "TERBUKA UNTUK BERTUMBUH",
+    "membershipTitle": "Jadilah Bagian dari\nKomunitas Profesional ASPAPI",
+    "membershipDescription": "Daftarkan diri Anda sebagai anggota ASPAPI dan nikmati berbagai manfaat keanggotaan — sertifikasi profesi, jaringan luas, dan pengembangan karir.",
+    "membershipButton": "Saya Tertarik Bergabung",
+    "membershipAudience": "Akademisi, praktisi, pendidik, dan mahasiswa"
+  },
+  "profiles": [
+    {
+      "id": "visi-misi",
+      "title": "Visi dan Misi ASPAPI",
+      "content": "\n      <h3>Visi</h3>\n      <blockquote class=\"profile-vision\"><p>Asosiasi Sarjana dan Praktisi Administrasi Perkantoran Indonesia (ASPAPI) menjadi organisasi profesi yang unggul dan berwatak sosial, dalam rangka pembangunan sumber daya manusia Indonesia yang kompeten dan profesional di bidang administrasi/manajemen perkantoran.</p></blockquote>\n      <h3>Misi</h3>\n      <ol class=\"profile-mission-list\">\n        <li>Mewadahi pemikiran spekulatif maupun empiris yang bersumber dari pengalaman pendidikan, dialog, dan pertemuan ilmiah.</li>\n        <li>Mengembangkan wacana, paradigma, kerangka berpikir, model, serta konsensus akademis dan praktis administrasi/manajemen perkantoran yang sesuai dengan konteks Indonesia.</li>\n        <li>Menyebarluaskan hasil pemikiran melalui teknologi informasi dan komunikasi agar dapat menjangkau berbagai konteks.</li>\n        <li>Memfasilitasi ahli, praktisi, dan pemerhati untuk mengkaji serta menerapkan hasil pemikiran demi pengembangan keilmuan dan bidang kajian pendidikan.</li>\n        <li>Memberikan pertimbangan akademis, profesional, dan rekomendasi kepada pemerintah pusat serta daerah untuk meningkatkan mutu pendidikan.</li>\n        <li>Mengembangkan organisasi menjadi Lembaga Sertifikasi Profesi untuk uji kompetensi administrasi dan manajemen perkantoran serta kesekretarisan.</li>\n      </ol>\n      <h3>Tujuan</h3>\n      <p>Menyumbangkan pemikiran untuk pembangunan nasional secara profesional dalam penataan, perlindungan, pemberdayaan administrasi dan manajemen perkantoran sehingga lebih terarah, berhasil, dan berdaya guna melalui penelitian, pengembangan dan penerapan ilmu pengetahuan dan teknologi dalam upaya mencerdaskan kehidupan bangsa.</p>\n    "
+    },
+    {
+      "id": "sejarah",
+      "title": "Sejarah Singkat ASPAPI",
+      "content": "\n      <h3>Awal Pembentukan</h3>\n      <p>ASPAPI lahir dari prakarsa para inisiator untuk mempertemukan sarjana dan praktisi administrasi perkantoran. Kebutuhan berbagi pengetahuan, pengalaman, dan gagasan mendorong pembentukan wadah profesi melalui rangkaian pertemuan lintas institusi.</p>\n      <h3>Sembilan Pertemuan Pembentukan</h3>\n      <ol class=\"profile-history-list\">\n        <li><time datetime=\"2010-02-27\">27 Februari 2010</time><p>Pertemuan awal di PAP UNS mempertemukan alumni dan praktisi untuk menggagas asosiasi profesi.</p></li>\n        <li><time datetime=\"2010-05-01\">1 Mei 2010</time><p>Nama ASPAPI disepakati di FKIP UNS, disertai rencana kongres dan penyusunan AD/ART.</p></li>\n        <li><time datetime=\"2010-06-19\">19 Juni 2010</time><p>Pertemuan di UNY membahas rancangan AD/ART serta persiapan kongres dan seminar nasional.</p></li>\n        <li><time datetime=\"2010-07-06\">6 Juli 2010</time><p>Kepanitiaan kongres dan seminar dibentuk dalam pertemuan di Candi Resto, Solo-Baru.</p></li>\n        <li><time datetime=\"2010-07-17\">17 Juli 2010</time><p>Perwakilan UNS, UNY, UNJ, UM, dan UNESA membahas jadwal, tema, serta topik kongres di UNY.</p></li>\n        <li><time datetime=\"2010-08-13\">13 Agustus 2010</time><p>Koordinasi di UNS mematangkan kepanitiaan, pembagian tugas, serta persiapan teknis dan logistik.</p></li>\n        <li><time datetime=\"2010-09-05\">5 September 2010</time><p>Rapat di Restoran Ilham menetapkan Graha Solo Raya sebagai tempat kongres dan mematangkan acara.</p></li>\n        <li><time datetime=\"2010-10-08\">8 Oktober 2010</time><p>Pertemuan akhir di PAP UNS meninjau kesiapan pelaksanaan, narasumber, serta materi komisi kongres.</p></li>\n        <li><time datetime=\"2010-10-16\">16&ndash;17 Oktober 2010</time><p>Kongres dan Seminar Nasional di Graha Solo Raya, Surakarta, menjadi puncak rangkaian pembentukan ASPAPI.</p></li>\n      </ol>\n      <h3>Pengukuhan Organisasi</h3>\n      <p>ASPAPI dikukuhkan melalui Akta Notaris Sri Purwanti, S.H. Nomor 01 tanggal <strong>7 Oktober 2010</strong>.</p>\n    "
+    },
+    {
+      "id": "inisiator",
+      "title": "Inisiator",
+      "content": "<p>Informasi inisiator ASPAPI Sulawesi Selatan belum dipublikasikan pada website ini.</p>"
+    },
+    {
+      "id": "kongres",
+      "title": "Kongres",
+      "content": "<p>Informasi pelaksanaan dan hasil kongres ASPAPI belum dipublikasikan pada website ini.</p>"
+    },
+    {
+      "id": "penasihat",
+      "title": "Dewan Penasihat",
+      "content": "<p>Susunan Dewan Penasihat ASPAPI Sulawesi Selatan belum dipublikasikan pada website ini.</p>"
+    },
+    {
+      "id": "pakar",
+      "title": "Dewan Pakar",
+      "content": "<p>Susunan Dewan Pakar ASPAPI Sulawesi Selatan belum dipublikasikan pada website ini.</p>"
+    },
+    {
+      "id": "pengurus",
+      "title": "Pengurus",
+      "content": "<p>Susunan pengurus dan masa bakti kepengurusan ASPAPI Sulawesi Selatan belum dipublikasikan pada website ini.</p>"
+    }
+  ],
+  "articles": [
+    {
+      "id": "digital",
+      "title": "Administrasi perkantoran di era kerja digital",
+      "category": "Artikel",
+      "topic": "TRANSFORMASI DIGITAL",
+      "summary": "Bukan sekadar beralih perangkat, tetapi menata ulang cara bekerja.",
+      "content": "<p>Digitalisasi administrasi bukan sekadar mengganti dokumen kertas dengan berkas elektronik. Perubahan yang bermakna dimulai dari proses kerja yang jelas: siapa yang membuat dokumen, siapa yang memeriksa, di mana berkas disimpan, dan bagaimana keputusan ditelusuri.</p><h3>Mulai dari alur, bukan aplikasi</h3><p>Petakan satu proses yang paling sering dilakukan, misalnya pengelolaan surat masuk. Catat sumber surat, penanggung jawab, batas waktu tindak lanjut, dan lokasi arsip. Pemetaan sederhana ini membantu tim memilih perangkat yang sesuai dengan kebutuhan, bukan sekadar mengikuti tren.</p><h3>Bangun kebiasaan yang konsisten</h3><p>Penamaan berkas, pembagian akses, dan pengendalian versi perlu disepakati bersama. Gunakan struktur folder yang mudah dipahami dan pisahkan dokumen kerja dari dokumen final. Hindari menjadikan akun pribadi sebagai satu-satunya tempat penyimpanan arsip organisasi.</p><h3>Jaga keamanan dan keterlacakan</h3><p>Berikan akses sesuai kebutuhan tugas, aktifkan autentikasi berlapis bila tersedia, dan siapkan cadangan. Tinjau akses saat anggota tim berpindah peran. Informasi sensitif perlu diperlakukan sesuai kebijakan organisasi dan ketentuan perlindungan data yang berlaku.</p><p>Keberhasilan tidak cukup diukur dari banyaknya aplikasi. Waktu pencarian dokumen, berkurangnya kesalahan, dan kejelasan tanggung jawab dapat menjadi indikator awal untuk mengevaluasi perbaikan.</p>",
+      "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80",
+      "imageAlt": "Ilustrasi ruang kantor modern yang terang",
+      "readMinutes": 3,
+      "publishedAt": "",
+      "published": true
+    },
+    {
+      "id": "etika",
+      "title": "Profesionalisme dimulai dari hal-hal kecil",
+      "category": "Artikel",
+      "topic": "PRAKTIK PROFESIONAL",
+      "summary": "Ketelitian, komunikasi, dan tanggung jawab dalam keseharian.",
+      "content": "<p>Kepercayaan terhadap sebuah organisasi sering dibentuk melalui interaksi sehari-hari: balasan surat yang jelas, jadwal yang tertib, dan informasi yang akurat. Di balik hal-hal tersebut, ada pekerjaan administrasi yang menuntut ketelitian sekaligus kepekaan.</p><h3>Ketelitian sebagai bentuk tanggung jawab</h3><p>Sebelum dokumen dikirim, periksa nama penerima, tanggal, lampiran, dan pihak yang berwenang menyetujui. Daftar periksa singkat dapat membantu menjaga mutu, terutama ketika pekerjaan berulang dilakukan di tengah tenggat waktu yang padat.</p><h3>Komunikasi yang memberi kepastian</h3><p>Pesan yang profesional menjelaskan tujuan, tindakan yang diperlukan, dan waktu yang diharapkan. Bila penyelesaian pekerjaan tertunda, sampaikan kondisi serta perkiraan tindak lanjut. Kepastian yang realistis lebih berguna daripada janji yang tidak dapat dipenuhi.</p><h3>Menjaga batas dan kerahasiaan</h3><p>Tidak semua informasi yang dapat diakses boleh dibagikan. Pastikan penerima memang berwenang sebelum meneruskan dokumen. Gunakan saluran komunikasi yang disepakati organisasi, terutama untuk data pribadi dan dokumen internal.</p><p>Profesionalisme tumbuh dari kebiasaan yang dapat diandalkan. Refleksi singkat bersama rekan kerja dapat membantu mengidentifikasi hal kecil yang perlu diperbaiki tanpa menunggu munculnya masalah besar.</p>",
+      "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80",
+      "imageAlt": "Ilustrasi praktisi memeriksa dokumen di meja kerja",
+      "readMinutes": 3,
+      "publishedAt": "",
+      "published": true
+    },
+    {
+      "id": "kolaborasi",
+      "title": "Menjembatani kampus dan dunia praktik",
+      "category": "Artikel",
+      "topic": "KEILMUAN",
+      "summary": "Ketika pengalaman lapangan memperkaya ruang pembelajaran.",
+      "content": "<p>Pembelajaran administrasi perkantoran menjadi lebih kaya ketika teori bertemu dengan pengalaman lapangan. Kampus menawarkan kerangka berpikir dan metode kajian, sementara praktisi membawa konteks, keterbatasan, dan persoalan nyata organisasi.</p><h3>Mulai dengan pertanyaan bersama</h3><p>Kolaborasi dapat berangkat dari masalah yang sederhana dan terukur: bagaimana mempercepat temu kembali arsip, memperjelas alur disposisi, atau meningkatkan kualitas layanan administrasi? Pertanyaan bersama membantu menyelaraskan kebutuhan praktisi dengan tujuan pembelajaran.</p><h3>Hadirkan kasus yang bertanggung jawab</h3><p>Studi kasus dari tempat kerja perlu disiapkan dengan memperhatikan izin penggunaan dan kerahasiaan. Hilangkan identitas serta data sensitif yang tidak diperlukan. Bedakan temuan yang didukung bukti dari pendapat atau pengalaman individual.</p><h3>Belajar dua arah</h3><p>Diskusi kasus, kuliah praktisi, dan proyek berbasis masalah dapat menjadi pilihan bentuk kerja sama. Mahasiswa berlatih menghubungkan konsep dengan situasi nyata; praktisi memperoleh sudut pandang baru; pendidik mendapatkan masukan untuk memperbarui pembelajaran.</p><p>Kolaborasi tidak harus dimulai dengan kegiatan berskala besar. Satu kasus yang dibahas secara mendalam, dengan tujuan dan evaluasi yang jelas, dapat menjadi langkah awal yang bermanfaat.</p>",
+      "image": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+      "imageAlt": "Ilustrasi kelompok belajar berdiskusi bersama",
+      "readMinutes": 3,
+      "publishedAt": "",
+      "published": true
+    }
+  ],
+  "events": [
+    {
+      "id": "kongres-v-aspapi",
+      "title": "Kongres V ASPAPI",
+      "label": "HADIRI DAN SUKSESKAN",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-22",
+      "venue": "Hotel Arya Duta, Makassar",
+      "address": "Jl. Maipa No. 297, Losari-Makassar",
+      "activities": [
+        "Pelantikan Pengurus ASPAPI Daerah Provinsi Sulawesi Selatan Periode 2026–2030",
+        "Penyegaran Asesor ASPAPI / Recognition of Current Competency",
+        "Pelatihan Penyusunan Artikel Berbantuan Generatif AI",
+        "Workshop Link and Match Kurikulum Administrasi Perkantoran (S1/D4/D3)"
+      ],
+      "registrationUrl": "",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Arya%20Duta%20Jl.%20Maipa%20No.%20297%20Makassar",
+      "image": "",
+      "published": true
+    }
+  ]
+}

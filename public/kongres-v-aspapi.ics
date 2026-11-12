@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ASPAPI Sulawesi Selatan//Agenda//ID
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:kongres-v-aspapi-20261120@aspapi.id
+DTSTAMP:20261111T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261123
+SUMMARY:Kongres V ASPAPI
+LOCATION:Hotel Arya Duta\, Jl. Maipa No. 297\, Losari-Makassar
+DESCRIPTION:Kongres V ASPAPI.\nRangkaian kegiatan:\n1. Pelantikan
+  Pengurus ASPAPI Daerah Provinsi Sulawesi Selatan Periode 2026-2030.
+ \n2. Penyegaran Asesor ASPAPI / Recognition of Current Competency.
+ \n3. Pelatihan Penyusunan Artikel Berbantuan Generatif AI.
+ \n4. Workshop Link and Match Kurikulum Administrasi Perkantoran
+  (S1/D4/D3).
+END:VEVENT
+END:VCALENDAR
