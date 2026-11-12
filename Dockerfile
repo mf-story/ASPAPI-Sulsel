@@ -18,7 +18,7 @@ RUN npm cache clean --force
 COPY --from=build /app/dist ./dist
 COPY server.js cms-model.js content.seed.json ./
 COPY server ./server
-COPY scripts/admin-account.js scripts/backup.js ./scripts/
+COPY scripts/admin-account.js scripts/backup.js scripts/transfer.js ./scripts/
 COPY ["Logo ASPAPI SULSEL.jpg", "./"]
 RUN mkdir -p /app/storage/uploads /app/backups
 RUN chown -R node:node /app

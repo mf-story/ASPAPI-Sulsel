@@ -50,6 +50,24 @@ Untuk mempertahankan perubahan admin dan gambar lokal:
 
 Tanpa langkah transfer ini, deployment pertama memakai konten awal `content.seed.json`, bukan perubahan terbaru yang disimpan melalui admin lokal.
 
+### Transfer ke Instalasi Baru
+
+Alternatif untuk instalasi yang baru berjalan dan belum memiliki akun admin:
+
+```sh
+node scripts/transfer.js export /lokasi-privat/transfer.json
+```
+
+Perintah ini dijalankan lokal. Paket memuat konten, gambar yang digunakan, dan hash akun admin; sesi login tidak disertakan. **Paket bersifat rahasia dan tidak boleh masuk Git, folder publik, atau dibagikan lewat URL.** Transfer melalui SFTP/SSH atau fasilitas berkas Coolify yang dilindungi, lalu tempatkan misalnya di `/app/backups/transfer.json`.
+
+Pada Terminal aplikasi tujuan:
+
+```sh
+node scripts/transfer.js import /app/backups/transfer.json
+```
+
+Impor memvalidasi data dan checksum gambar, serta menolak database tujuan yang sudah memiliki akun atau pernah diperbarui. Setelah memverifikasi konten, gambar, dan login admin, hapus berkas transfer dari server. Akun menggunakan kata sandi lokal yang sama; pengguna harus login kembali karena sesi tidak dipindahkan.
+
 ## Akun Admin
 
 Untuk instalasi baru, buka Terminal aplikasi di Coolify setelah container sehat:

@@ -10,6 +10,7 @@ import { createApplication } from '../server.js';
 import { hashPassword, openStore } from '../server/store.js';
 import sharp from 'sharp';
 import { createBackup } from '../scripts/backup.js';
+import { exportTransfer, importTransfer } from '../scripts/transfer.js';
 
 test('admin authentication, CSRF, content persistence and safe publication', async () => {
   const directory = mkdtempSync(path.join(tmpdir(), 'aspapi-test-'));
@@ -120,4 +121,29 @@ test('backup snapshots database and media; account CLI help needs no credentials
     assert.equal(help.status, 0);
     assert.match(help.stdout, /--reset/);
   } finally { db.close(); rmSync(directory, { recursive: true, force: true }); }
+});
+
+test('private transfer restores content and accounts once without sessions', async () => {
+  const directory = mkdtempSync(path.join(tmpdir(), 'aspapi-transfer-'));
+  const source = path.join(directory, 'source');
+  const target = path.join(directory, 'target');
+  const original = openStore(source, null);
+  const destination = openStore(target, null);
+  destination.close();
+  try {
+    const password = await hashPassword('TestOnly-Transfer-42');
+    original.prepare('INSERT INTO users(username,password) VALUES (?,?)').run('transfer-test', password);
+    original.prepare('INSERT INTO sessions VALUES (?,?,?,?)').run('test-session', 1, 'test-csrf', Date.now() + 10000);
+    const filename = path.join(directory, 'private-transfer.json');
+    const exported = exportTransfer(source, filename);
+    assert.equal(exported.accounts, 1);
+    assert.ok(!readFileSync(filename, 'utf8').includes('test-session'));
+    const imported = importTransfer(target, filename);
+    assert.equal(imported.accounts, 1);
+    const restored = openStore(target, null);
+    assert.equal(restored.prepare('SELECT count(*) AS total FROM sessions').get().total, 0);
+    assert.equal(restored.prepare('SELECT password FROM users').get().password, password);
+    restored.close();
+    assert.throws(() => importTransfer(target, filename), /instalasi baru/);
+  } finally { original.close(); rmSync(directory, { recursive: true, force: true }); }
 });
