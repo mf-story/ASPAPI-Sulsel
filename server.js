@@ -6,12 +6,13 @@ import sharp from 'sharp';
 import sanitizeHtml from 'sanitize-html';
 import { parseCookie, stringifySetCookie } from 'cookie';
 import { randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
-import { mkdirSync, readdirSync, statSync, writeFileSync, unlinkSync } from 'node:fs';
+import { mkdirSync, readdirSync, statSync, writeFileSync, unlinkSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 import { contentSchema } from './cms-model.js';
 import { openStore, hashPassword, verifyPassword, hashToken } from './server/store.js';
+import { socialMetadata, injectSocialMetadata, renderSocialImage } from './server/social.js';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const credentials = z.object({ username: z.string().trim().min(3).max(60).regex(/^[a-zA-Z0-9_.-]+$/), password: z.string().min(12).max(128) });
@@ -60,6 +61,19 @@ export function createApplication({ dataDir = path.join(root, 'storage'), seedPa
   const sessionCookie = token => stringifySetCookie({ name: 'aspapi_session', value: token, httpOnly: true, sameSite: 'strict', secure, path: '/', maxAge: token ? 28800 : 0 });
   const audit = (username, action) => db.prepare('INSERT INTO audit(username,action,created) VALUES (?,?,?)').run(username, action, new Date().toISOString());
   const getContent = () => { const row = db.prepare('SELECT * FROM content WHERE id=1').get(); return { revision: row.revision, updatedAt: row.updated, data: JSON.parse(row.data) }; };
+  app.locals.shareMetadata = req => socialMetadata(getContent(), req.originalUrl, publicOrigin || `http://${req.get('host')}`);
+  const previewCache = new Map();
+  app.get('/share/preview.jpg', async (req, res) => {
+    const metadata = app.locals.shareMetadata(req);
+    if (metadata.missing) return res.sendStatus(404);
+    const cacheKey = `${metadata.revision}:${metadata.article?.id || 'home'}`;
+    if (!previewCache.has(cacheKey)) {
+      if (previewCache.size >= 24) previewCache.delete(previewCache.keys().next().value);
+      previewCache.set(cacheKey, renderSocialImage(metadata, uploads, path.join(root, 'Logo ASPAPI SULSEL.jpg')).catch(error => { previewCache.delete(cacheKey); throw error; }));
+    }
+    const image = await previewCache.get(cacheKey);
+    res.set('Cache-Control', 'public, max-age=3600').type('jpeg').send(image);
+  });
   const isLocal = req => ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress);
   const hasUsers = () => !!db.prepare('SELECT id FROM users LIMIT 1').get();
   app.use('/api', (req, res, next) => {
@@ -179,11 +193,22 @@ export function createApplication({ dataDir = path.join(root, 'storage'), seedPa
 export async function attachFrontend(app, production = false) {
   app.get('/admin', (req, res) => res.redirect('/admin.html'));
   if (production) {
+    const template = readFileSync(path.join(root, 'dist', 'index.html'), 'utf8');
+    app.get(['/', '/index.html'], (req, res) => {
+      const metadata = app.locals.shareMetadata(req);
+      res.status(metadata.missing ? 404 : 200).set('Cache-Control', 'no-cache').type('html').send(injectSocialMetadata(template, metadata));
+    });
     app.use(express.static(path.join(root, 'dist')));
-    app.get('/', (req, res) => res.sendFile(path.join(root, 'dist', 'index.html')));
   } else {
     const { createServer } = await import('vite');
     const vite = await createServer({ root, server: { middlewareMode: true, fs: { allow: [root], deny: ['**/.env*', '**/.git/**', '**/storage/**', '**/server/**', '**/scripts/**', '**/tests/**', '**/backups/**', '**/server.js', '**/content.seed.json', '**/*.sqlite*'] } }, appType: 'mpa' });
+    app.get(['/', '/index.html'], async (req, res, next) => {
+      try {
+        const metadata = app.locals.shareMetadata(req);
+        const template = await vite.transformIndexHtml(req.originalUrl, readFileSync(path.join(root, 'index.html'), 'utf8'));
+        res.status(metadata.missing ? 404 : 200).set('Cache-Control', 'no-cache').type('html').send(injectSocialMetadata(template, metadata));
+      } catch (error) { next(error); }
+    });
     app.use(vite.middlewares);
     return vite;
   }

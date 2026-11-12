@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "node --check app.js",
-    "test": "node --test tests/admin.test.js",
+    "test": "node --test tests/admin.test.js tests/social.test.js",
     "pretest:browser": "npm run build",
     "test:browser": "node --test tests/browser.test.js",
     "admin:account": "node --env-file-if-exists=.env scripts/admin-account.js",

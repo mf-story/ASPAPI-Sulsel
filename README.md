@@ -23,6 +23,12 @@ Website lokal: http://127.0.0.1:5174/ dan admin: http://127.0.0.1:5174/admin. Pa
 
 Klik **Simpan Perubahan** untuk menerapkan perubahan. Draf hanya terlihat di admin. Perubahan baru tampil saat pengunjung membuka atau memuat ulang halaman. Field tanggal publikasi adalah metadata, bukan penjadwalan otomatis.
 
+## Pratinjau Tautan WhatsApp
+
+Beranda dan URL artikel mengirim Open Graph langsung dari server. Kartu beranda menggunakan logo dan identitas dari CMS; artikel memakai judul, ringkasan, dan gambar artikelnya. Gambar lokal dikonversi menjadi JPEG 1200 x 630 di `/share/preview.jpg`, sedangkan gambar artikel HTTPS eksternal memakai URL sumbernya. Artikel tanpa gambar menggunakan kartu organisasi. Draf tidak disertakan.
+
+Gunakan URL HTTPS publik saat berbagi. WhatsApp dapat menyimpan pratinjau lama; pesan yang sudah dikirim tidak otomatis diperbarui. Pembaruan CMS mengubah versi URL gambar pratinjau.
+
 ## Validasi
 
 ```sh
