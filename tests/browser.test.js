@@ -90,8 +90,59 @@ test('admin browser workflow, publication, media and responsive views', { timeou
     await expect(page.locator('#save-state')).toHaveText('Semua perubahan tersimpan');
     await publicPage.reload();
     await expect(publicPage.locator('.hero-description')).toHaveText('Deskripsi CMS yang berhasil diperbarui.');
+    await publicPage.route('https://aspapi.id/images/inisiator/**', route => route.fulfill({ contentType: 'image/png', body: png }));
+    for (const width of [1440, 390, 320]) {
+      await publicPage.setViewportSize({ width, height: 844 });
+      if (width <= 940) await publicPage.locator('.menu-toggle').click();
+      await publicPage.locator('.profile-toggle').click();
+      await publicPage.locator('[data-profile="inisiator"]').click();
+      const dialog = publicPage.locator('dialog[open]');
+      await expect(dialog.locator('.profile-initiators img')).toHaveCount(17);
+      const photos = await dialog.locator('.profile-initiators img').evaluateAll(images => images.map(image => {
+        const { width, height } = image.getBoundingClientRect();
+        return { width, height, alt: image.alt, name: image.parentElement.querySelector('strong').textContent };
+      }));
+      for (const photo of photos) {
+        assert.equal(photo.width, 48);
+        assert.equal(photo.height, 56);
+        assert.equal(photo.alt, photo.name);
+      }
+      assert.equal(await dialog.evaluate(element => element.scrollWidth > element.clientWidth), false, `Initiators overflow: ${width}`);
+      await publicPage.keyboard.press('Escape');
+    }
+    for (const width of [320, 390, 500, 640, 641, 940, 1440]) {
+      await publicPage.setViewportSize({ width, height: 844 });
+      await publicPage.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+      const join = publicPage.locator('.header-join');
+      await expect(join).toBeVisible();
+      await expect(join).toHaveAttribute('href', 'https://aspapi.id/anggota/daftar');
+      await join.click({ trial: true });
+      const layout = await publicPage.evaluate(() => {
+        const rect = selector => {
+          const { left, right, top, bottom } = document.querySelector(selector).getBoundingClientRect();
+          return { left, right, top, bottom };
+        };
+        return { join: rect('.header-join'), brand: rect('.site-header .brand'), toggle: rect('.menu-toggle'), header: rect('.site-header'), hero: rect('.hero') };
+      });
+      assert.ok(layout.join.left >= 0 && layout.join.right <= width, `Join button outside viewport: ${width}`);
+      assert.ok(layout.join.top >= layout.header.top && layout.join.bottom <= layout.header.bottom, `Join button outside header: ${width}`);
+      if (width <= 640) {
+        assert.ok(layout.join.top >= Math.max(layout.brand.bottom, layout.toggle.bottom), `Mobile header overlap: ${width}`);
+        assert.ok(layout.hero.top >= layout.header.bottom, `Hero overlaps header: ${width}`);
+      }
+      if (width <= 940) {
+        await publicPage.locator('.menu-toggle').click();
+        await expect(publicPage.locator('#main-nav')).toBeVisible();
+        await expect(join).toBeVisible();
+        await join.click({ trial: true });
+        await publicPage.locator('.menu-toggle').click();
+        await expect(publicPage.locator('#main-nav')).toBeHidden();
+      }
+    }
     await page.locator('[data-view="dashboard"]').click();
     const screenshots = path.join(root, 'test-results'); mkdirSync(screenshots, { recursive: true });
+    await publicPage.setViewportSize({ width: 390, height: 844 });
+    await publicPage.screenshot({ path: path.join(screenshots, 'home-mobile.png') });
     await page.screenshot({ path: path.join(screenshots, 'admin-desktop.png'), fullPage: true });
     await page.setViewportSize({ width: 390, height: 844 });
     for (const view of ['dashboard', 'articles', 'events', 'settings', 'profiles', 'media', 'account']) {

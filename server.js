@@ -22,7 +22,7 @@ export function cleanContent(data) {
     allowedTags: ['p', 'br', 'strong', 'b', 'em', 'i', 'u', 's', 'h2', 'h3', 'h4', 'ol', 'ul', 'li', 'blockquote', 'a', 'time', 'span', 'img'],
     allowedAttributes: { a: ['href', 'target', 'rel'], img: ['src', 'alt', 'width', 'height'], time: ['datetime'], '*': ['class'] },
     allowedSchemesByTag: { img: ['http', 'https'] },
-    allowedClasses: { '*': ['profile-vision', 'profile-mission-list', 'profile-history-list', 'reading-note', 'ql-align-center', 'ql-align-right', 'ql-align-justify'] },
+    allowedClasses: { '*': ['profile-vision', 'profile-mission-list', 'profile-history-list', 'profile-initiators', 'reading-note', 'ql-align-center', 'ql-align-right', 'ql-align-justify'] },
     allowedSchemes: ['http', 'https', 'mailto', 'tel'], allowProtocolRelative: false,
     transformTags: { a: sanitizeHtml.simpleTransform('a', { rel: 'noopener noreferrer' }) }
   });

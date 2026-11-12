@@ -18,6 +18,13 @@
 #main-nav .profile-submenu button{font-size:15px;min-height:50px}
 html{scroll-padding-top:88px}
 @media(max-width:940px){.site-header .header-inner{height:64px}.site-header .menu-toggle{width:44px;height:44px}.header-inner #main-nav{max-height:calc(100dvh - 120px)}html{scroll-padding-top:76px}}
+@media(max-width:640px){
+	html{scroll-padding-top:140px}
+	.site-header .header-inner{height:auto;display:grid;grid-template-columns:1fr auto;gap:10px 12px;padding-block:10px}
+	.site-header .header-join{display:inline-flex;grid-column:1/-1;grid-row:2;justify-self:start;margin-left:0;min-height:44px}
+	.site-header .menu-toggle{grid-column:2;grid-row:1}
+	.header-inner #main-nav{max-height:calc(100dvh - 170px)}
+}
 .topline .container{min-height:28px}
 .topline .topline-motto{color:#f5b546;font-size:10px;font-weight:700;font-style:italic;line-height:1.5}
 @media(max-width:640px){.topline .container{flex-wrap:wrap;gap:4px 16px;padding-block:4px}.topline .topline-motto{font-size:10px}}
@@ -90,6 +97,9 @@ html{scroll-padding-top:88px}
 .profile-history-list li::marker{color:var(--red);font-weight:700}
 .profile-history-list time{font-weight:700;color:var(--ink)}
 .reading-body .profile-history-list p{margin:5px 0 0}
+.profile-initiators{padding-left:24px;margin:20px 0}
+.reading-body .profile-initiators li{position:relative;min-height:56px;padding-left:60px;margin-bottom:16px;text-align:left;overflow-wrap:anywhere}
+.reading-body .profile-initiators img{position:absolute;top:0;left:0;width:48px;height:56px;object-fit:contain;border-radius:4px;background:var(--pale)}
 .profile-pagination{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);margin-top:26px;padding-top:20px}
 .profile-pagination .button{max-width:100%;min-width:0;text-align:left}
 .profile-pagination [data-previous-profile]{margin-right:auto}

@@ -11,10 +11,14 @@ npm run dev
 
 Website lokal: http://127.0.0.1:5174/ dan admin: http://127.0.0.1:5174/admin. Pada penggunaan lokal pertama, buat nama pengguna dan kata sandi sendiri melalui formulir **Buat Admin Pertama**. Tidak ada akun atau kata sandi bawaan. Jangan membagikan kata sandi melalui chat.
 
+Pada layar HP (lebar maksimal 640 px), tombol **Menjadi Anggota** tetap terlihat pada baris kedua header, di bawah logo dan tombol menu, tanpa perlu membuka navigasi.
+
 ## Mengelola Konten
 
 - **Pengaturan & Beranda:** 69 field untuk identitas, kontak, navigasi, teks/gambar beranda, bidang kegiatan, informasi, dan ajakan keanggotaan.
 - **Profil Organisasi:** tujuh bagian profil dengan editor teks dan penyisipan gambar.
+- **Inisiator:** data awal memuat 17 inisiator ASPAPI nasional beserta gelar, afiliasi, dan foto kecil (48 x 56 px) dari [situs resmi ASPAPI](https://aspapi.id/profil/inisiator), diakses pada 12 November 2026. Foto dimuat langsung dari situs sumber dan memerlukan koneksi internet. Daftar ini bukan susunan pengurus Sulawesi Selatan. Untuk database yang sudah berjalan, perbarui profil melalui CMS; perubahan seed tidak menimpa konten tersimpan.
+- **Kongres:** profil merangkum kewenangan serta riwayat Kongres I-IV, termasuk tanggal, lokasi, kegiatan, dan ketua umum terpilih, berdasarkan [situs resmi ASPAPI](https://aspapi.id/profil/kongres), diakses pada 12 November 2026. Agenda Kongres V dikelola terpisah pada bagian Agenda Kegiatan.
 - **Berita & Informasi:** tambah, edit, hapus, pencarian, kategori, gambar, draf, dan terbit. ID artikel yang sudah dibuat dipertahankan agar tautannya tidak berubah.
 - **Agenda Kegiatan:** tanggal, tempat, kegiatan pendamping, poster, peta, dan URL pendaftaran. URL kosong membuat tombol Daftar nonaktif. Kalender otomatis mengikuti data tersimpan.
 - **Pustaka Gambar:** unggah JPG/PNG/WebP hingga 5 MB; server mengubahnya menjadi WebP. Gambar yang masih digunakan tidak dapat dihapus.

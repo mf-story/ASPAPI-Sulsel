@@ -35,6 +35,7 @@ test('admin authentication, CSRF, content persistence and safe publication', asy
     const content = await (await request('/api/admin/content')).json();
     content.data.settings.brand = 'ASPAPI Test';
     content.data.profiles[0].content = '<p>Safe</p><script>alert(1)</script><a href="javascript:alert(1)">bad</a>';
+    content.data.profiles.find(item => item.id === 'inisiator').content = '<ol class="profile-initiators"><li><img src="https://aspapi.id/images/inisiator/prof-dr-muhyadi.png" alt="Prof. Dr. Muhyadi" width="48" height="56" onerror="alert(1)"><strong>Prof. Dr. Muhyadi</strong><br>Universitas Negeri Yogyakarta</li></ol>';
     content.data.articles.push({ id: 'draft', title: 'Draft', category: 'Berita', topic: '', summary: '', content: '<p>draft</p>', image: '', imageAlt: '', readMinutes: 3, publishedAt: '', published: false });
     assert.equal((await request('/api/admin/content', 'PUT', content, { 'X-CSRF-Token': '' })).status, 403);
     assert.equal((await request('/api/admin/content', 'PUT', content, { Origin: 'https://evil.example' })).status, 403);
@@ -44,6 +45,10 @@ test('admin authentication, CSRF, content persistence and safe publication', asy
     assert.equal(result.revision, content.revision + 1);
     assert.ok(!result.data.profiles[0].content.includes('<script'));
     assert.ok(!result.data.profiles[0].content.includes('javascript:'));
+    const initiators = result.data.profiles.find(item => item.id === 'inisiator').content;
+    assert.match(initiators, /class="profile-initiators"/);
+    assert.match(initiators, /width="48" height="56"/);
+    assert.ok(!initiators.includes('onerror'));
     assert.equal((await request('/api/admin/content', 'PUT', content)).status, 409);
     const published = await (await request('/api/content')).json();
     assert.equal(published.data.settings.brand, 'ASPAPI Test');
