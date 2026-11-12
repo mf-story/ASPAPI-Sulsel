@@ -48,20 +48,24 @@ test('WhatsApp receives metadata and JPEG directly from HTTP without JavaScript'
   const { app, db } = createApplication({ dataDir: directory, seedPath: null, production: true, publicOrigin: 'https://aspapi.example' });
   const data = emptyContent();
   data.settings.brand = 'ASPAPI'; data.settings.region = 'Sulawesi Selatan'; data.settings.pageTitle = 'ASPAPI Sulsel'; data.settings.description = 'Profil organisasi.';
-  data.articles = [{ id: 'terbit', published: true, title: 'Berita Publik', summary: 'Ringkasan berita publik.', image: '', imageAlt: '', publishedAt: '2026-11-12' }, { id: 'draf', published: false, title: 'Rahasia' }];
+  data.articles = [{ id: 'home', published: true, title: 'Berita Publik', summary: 'Ringkasan berita publik.', image: '/uploads/test.webp', imageAlt: '', publishedAt: '2026-11-12' }, { id: 'draf', published: false, title: 'Rahasia' }];
+  writeFileSync(path.join(directory, 'uploads', 'test.webp'), await sharp({ create: { width: 200, height: 100, channels: 3, background: '#bc2333' } }).webp().toBuffer());
   db.prepare('UPDATE content SET data=? WHERE id=1').run(JSON.stringify(data));
   await attachFrontend(app, true);
   const server = app.listen(0, '127.0.0.1'); await once(server, 'listening');
   const origin = `http://127.0.0.1:${server.address().port}`;
   try {
-    const response = await fetch(origin + '/?artikel=terbit', { headers: { 'User-Agent': 'WhatsApp/2.26' } });
+    const homeImage = Buffer.from(await (await fetch(origin + '/share/preview.jpg')).arrayBuffer());
+    const response = await fetch(origin + '/?artikel=home', { headers: { 'User-Agent': 'WhatsApp/2.26' } });
     assert.equal(response.status, 200);
     const document = load(await response.text());
     assert.equal(document('meta[property="og:title"]').attr('content'), 'Berita Publik');
     const imageUrl = new URL(document('meta[property="og:image"]').attr('content'));
     const image = await fetch(origin + imageUrl.pathname + imageUrl.search);
     assert.equal(image.status, 200); assert.match(image.headers.get('content-type'), /image\/jpeg/);
-    const dimensions = await sharp(Buffer.from(await image.arrayBuffer())).metadata();
+    const articleImage = Buffer.from(await image.arrayBuffer());
+    assert.notDeepEqual(articleImage, homeImage);
+    const dimensions = await sharp(articleImage).metadata();
     assert.equal(dimensions.width, 1200); assert.equal(dimensions.height, 630);
     assert.equal((await fetch(origin + '/?artikel=draf')).status, 404);
     assert.equal((await fetch(origin + '/share/preview.jpg?artikel=draf')).status, 404);

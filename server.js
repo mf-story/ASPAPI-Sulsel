@@ -66,7 +66,7 @@ export function createApplication({ dataDir = path.join(root, 'storage'), seedPa
   app.get('/share/preview.jpg', async (req, res) => {
     const metadata = app.locals.shareMetadata(req);
     if (metadata.missing) return res.sendStatus(404);
-    const cacheKey = `${metadata.revision}:${metadata.article?.id || 'home'}`;
+    const cacheKey = `${metadata.revision}:${metadata.article ? `article:${metadata.article.id}` : 'website'}`;
     if (!previewCache.has(cacheKey)) {
       if (previewCache.size >= 24) previewCache.delete(previewCache.keys().next().value);
       previewCache.set(cacheKey, renderSocialImage(metadata, uploads, path.join(root, 'Logo ASPAPI SULSEL.jpg')).catch(error => { previewCache.delete(cacheKey); throw error; }));
